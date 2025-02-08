@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include("./partials/head") %>
+    <title>Signup</title>
+</head>
+<body>
+    <div class="container d-flex justify-content-center align-items-center min-vh-100">
+        <div class="card shadow-lg p-4 rounded-4 w-100" style="max-width: 400px;">
+          <a href="/" class="btn btn-close"></a>
+            <h2 class="text-center mb-3">Sign Up</h2>
+
+            <% if (locals.error) { %>
+                <div class="alert alert-danger text-center">
+                    <%= locals.error %>
+                </div>
+            <% } %>
+
+            <form action="/user/signup" method="post">
+                <div class="mb-3">
+                    <label for="username" class="form-label">Username</label>
+                    <input type="text" placeholder="Enter Username" class="form-control" id="username" name="username" required>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email address</label>
+                    <input type="email" placeholder="Enter email" class="form-control" id="email" name="email" required>
+                    <div class="form-text">We'll never share your email with anyone else.</div>
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="password" name="password" required>
+                </div>
+
+                <button type="submit" class="btn btn-primary w-100">Sign Up</button>
+                <p class="text-center mt-3">Already have an account? <a href="/user/signin">Sign in</a></p>
+            </form>
+        </div>
+    </div>
+
+    <%- include("./partials/script") %>
+</body>
+</html>
